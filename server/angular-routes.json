@@ -1,0 +1,107 @@
+[
+  {
+    "abstract": true,
+    "name": "",
+    "url": "^"
+  },
+  {
+    "express": {
+      "regexp": "^/account/auth/([^/]*)$",
+      "url": "/account/auth/:provider"
+    },
+    "name": "auth",
+    "url": "/account/auth/:provider?code&error"
+  },
+  {
+    "abstract": true,
+    "name": "root"
+  },
+  {
+    "express": {
+      "regexp": "^/login$",
+      "url": "/login"
+    },
+    "name": "root.login",
+    "url": "/login"
+  },
+  {
+    "express": {
+      "regexp": "^/logout$",
+      "url": "/logout"
+    },
+    "name": "root.logout",
+    "url": "/logout"
+  },
+  {
+    "express": {
+      "regexp": "^/error$",
+      "url": "/error"
+    },
+    "name": "root.error",
+    "url": "/error"
+  },
+  {
+    "express": {
+      "regexp": "^/widgets$",
+      "url": "/widgets"
+    },
+    "name": "root.widgets",
+    "url": "/widgets"
+  },
+  {
+    "express": {
+      "regexp": "^/widgets/new$",
+      "url": "/widgets/new"
+    },
+    "name": "root.widgets.new",
+    "url": "/new"
+  },
+  {
+    "express": {
+      "regexp": "^/widgets/edit/([^/]*)$",
+      "url": "/widgets/edit/:id"
+    },
+    "name": "root.widgets.edit",
+    "url": "/edit/:id"
+  },
+  {
+    "express": {
+      "regexp": "^/widgets/([^/]*)$",
+      "url": "/widgets/:id"
+    },
+    "name": "root.widgets.view",
+    "url": "/:id"
+  },
+  {
+    "express": {
+      "regexp": "^/account$",
+      "url": "/account"
+    },
+    "name": "root.account",
+    "url": "/account"
+  },
+  {
+    "express": {
+      "regexp": "^/$",
+      "url": "/"
+    },
+    "name": "root.home",
+    "url": "/"
+  },
+  {
+    "express": {
+      "regexp": "^/about$",
+      "url": "/about"
+    },
+    "name": "root.about",
+    "url": "/about"
+  },
+  {
+    "express": {
+      "regexp": "^/article$",
+      "url": "/article"
+    },
+    "name": "root.article",
+    "url": "/article"
+  }
+]

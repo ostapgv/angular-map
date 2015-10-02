@@ -1,0 +1,7 @@
+{
+  "additionalRules": [
+    "node_modules/jscs-angular/src/rules/*.js"
+  ],
+  "esnext": true,
+  "validateIndentation": 4
+}

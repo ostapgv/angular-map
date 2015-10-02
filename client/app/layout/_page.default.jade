@@ -1,0 +1,20 @@
+- var header = {};
+- var main = {};
+- var footer = {};
+
+block vars
+  - main.container = true
+
+block header
+  include _header.default.jade
+
+if main.container
+  .container
+    block main
+      include _main.default.jade
+else
+  block main
+    include _main.default.jade
+
+block footer
+  include _footer.default.jade

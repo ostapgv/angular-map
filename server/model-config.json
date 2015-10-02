@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "sources": [
+      "../node_modules/loopback-component-passport/lib/models",
+      "loopback/common/models",
+      "loopback/server/models",
+      "./models"
+    ]
+  },
+  "Email": {
+    "dataSource": "email",
+    "public": false
+  },
+  "User": {
+    "dataSource": "mongo"
+  },
+  "AccessToken": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "UserIdentity": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "UserCredential": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "Widget": {
+    "dataSource": "mongo"
+  }
+}

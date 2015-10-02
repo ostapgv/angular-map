@@ -1,0 +1,8 @@
+nav.navbar.navbar-default(ng-controller="NavbarController as navbarCtrl" role="navigation")
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(ui-sref="root.home") UI Project
+
+    ul.nav.navbar-nav.navbar-right
+      li(ng-repeat="item in navbarCtrl.navList" ng-if="item.show" ui-sref-active="active" aria-label="navbar")
+          a(ng-bind="item.title" ui-sref="{{item.sref}}")

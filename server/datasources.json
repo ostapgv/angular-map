@@ -1,0 +1,32 @@
+{
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "gpoatg@gmail.com",
+          "pass": "WKisAmazing99!"
+        }
+      }
+    ]
+  },
+  "mongo": {
+    "name": "mongo",
+    "connector": "mongodb",
+    "host": "localhost",
+    "port": 27017,
+    "database": "project-boilerplate"
+  },
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  }
+}

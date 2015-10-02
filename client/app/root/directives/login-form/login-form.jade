@@ -1,0 +1,31 @@
+form.login-form(name="form" novalidate="novalidate" ng-submit="loginForm.login()")
+  .alert.alert-warning(ng-if="loginForm.authError" ng-bind="loginForm.authError")
+  .alert.alert-danger(ng-if="loginForm.authReason" ng-bind="loginForm.authReason")
+
+  .row
+    .col-md-6
+        .form-group
+          label.control-label(for="username") Username
+          input#username.form-control(type="text" name="username" ng-model="loginForm.username" required="true" autofocus="autofocus" placeholder="Username")
+          div(ng-show="form.$submitted || form.username.$touched")
+            strong(ng-show="form.username.$error.required") Username is required
+
+        .form-group
+          label.control-label(for="password") Password
+          input#password.form-control(type="password" name="password" ng-model="loginForm.password" placeholder="Password" required="true")
+          div(ng-show="form.$submitted || form.username.$touched")
+            strong(ng-show="form.password.$error.required") Password is required
+
+        .checkbox: label
+          input(type="checkbox" ng-model="loginForm.rememberMe")
+          | Remember Me
+
+        .form-group
+          button#ue_login-modal-submit.btn.btn-primary.login(type="submit" ng-disabled="form.$invalid") Log In
+
+    .col-md-6
+      //- this target _self bypasses angular ui-router, this is meant for express (passport) to handle
+      p
+        a.btn.btn-default(href="/auth/google" target="_self")
+          img(src="assets/images/gicon.png")
+          | &nbsp; Sign in with Google

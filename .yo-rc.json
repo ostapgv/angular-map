@@ -1,0 +1,44 @@
+{
+  "generator-jumpstart": {
+    "version": "0.0.0",
+    "props": {
+      "angularModules": [
+        {
+          "key": "animate",
+          "module": "ngAnimate"
+        },
+        {
+          "key": "cookies",
+          "module": "ngCookies"
+        },
+        {
+          "key": "touch",
+          "module": "ngTouch"
+        },
+        {
+          "key": "sanitize",
+          "module": "ngSanitize"
+        }
+      ],
+      "jQuery": {
+        "key": "jquery2"
+      },
+      "ui": {
+        "key": "bootstrap",
+        "module": null
+      },
+      "sassVersion": {
+        "key": "node-sass",
+        "extension": "scss"
+      },
+      "jsPreprocessor": {
+        "key": "babel",
+        "extension": "js",
+        "srcExtension": "es6"
+      },
+      "loopback": {
+        "key": true
+      }
+    }
+  }
+}

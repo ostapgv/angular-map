@@ -1,0 +1,9 @@
+h1 About Page! Doesn't use scope
+
+ul
+  li(ng-repeat="awesomeThing in ::aboutCtrl.awesomeThings | orderBy:'rank'")
+    h3(ng-bind="::awesomeThing.title")
+    p: img(ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}")
+    p(ng-bind="::awesomeThing.description")
+    p
+      a(ng-href="{{awesomeThing.url}}" ng-bind="::awesomeThing.url")

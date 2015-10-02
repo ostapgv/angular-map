@@ -1,0 +1,8 @@
+h1
+  | List of Widgets. My Parent was initialized at:
+  span(ng-bind="::widgetsCtrl.initializeTime")
+ul
+  li(ng-repeat="widget in ::widgetsCtrl.widgets")
+    a(ui-sref="root.widgets.view({ id: widget.id })" ng-bind="::widget.name")
+
+p: a.btn.btn-success(ui-sref="root.widgets.new") Add Widget

@@ -1,0 +1,12 @@
+{
+  "initial": {
+    "morgan": {
+      "enabled": false
+    }
+  },
+  "files": {
+    "loopback#static": [
+      { "params": "$!../client" }
+    ]
+  }
+}

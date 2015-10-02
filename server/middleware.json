@@ -1,0 +1,28 @@
+{
+  "initial": {
+    "morgan": {
+      "params": ["dev"]
+    },
+    "compression": {}
+  },
+  "session": {
+    "express-session": {
+      "params": {
+        "secret": "session-secret",
+        "saveUninitialized": true,
+        "resave": true
+      }
+    }
+  },
+  "auth": {},
+  "parse": {},
+  "routes": {},
+  "files": {
+    "loopback#static": [
+      { "params": "$!../bower_components", "paths": "/bower_components" },
+      { "params": "$!../.tmp" },
+      { "params": "$!../client" }
+    ]
+  },
+  "final": {}
+}

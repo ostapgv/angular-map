@@ -1,0 +1,18 @@
+{
+  "name": "angularMap",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.4.*",
+    "angular-animate": "^1.4.*",    "angular-cookies": "^1.4.*",    "angular-touch": "^1.4.*",    "angular-sanitize": "^1.4.*",    "jquery": "^2.*",
+    "angular-ui-router": "^0.2.*",
+    "bootstrap-sass-official": "^3.3.*",
+    "ngDialog": "^0.3.*",
+    "restangular": "^1.5.*"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.*"
+  },
+  "resolutions": {
+    "angular": "^1.4.*"
+  }
+}

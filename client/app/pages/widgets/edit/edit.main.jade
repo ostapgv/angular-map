@@ -1,0 +1,15 @@
+h1(ng-if="widgetsEditCtrl.id") Editing This Awesome Widget
+h1(ng-if="!widgetsEditCtrl.id") Adding An Awesome Widget
+p.lead Imagine some really cool form here.
+p: strong {{::widgetsEditCtrl.message}}
+
+form.form-horizontal(role="form" ng-submit="::widgetsEditCtrl.saveWidget()")
+  .form-group
+    label.col-sm-2(for="widget_name") Name
+    .col-sm-4
+      input.form-control(type="text"  ng-model="widgetsEditCtrl.widget.name" id="widget_name")
+    .col-sm-4
+      button.btn.btn-primary(type="submit")
+        span(ng-if="widgetsEditCtrl.id") Update
+        span(ng-if="!widgetsEditCtrl.id") Add
+
