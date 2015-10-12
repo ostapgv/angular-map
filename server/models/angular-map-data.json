@@ -1,0 +1,28 @@
+{
+  "name": "AngularMapData",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "latitude": {
+      "type": "number",
+      "required": true,
+      "defauld" : 51.219053
+    },
+    "longitude": {
+      "type": "number",
+      "required": true,
+      "defauld" : 4.404418
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

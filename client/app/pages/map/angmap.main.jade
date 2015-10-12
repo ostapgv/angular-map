@@ -1,0 +1,9 @@
+script(src='//maps.googleapis.com/maps/api/js?sensor=false')
+
+link(rel="stylesheet" href="app/pages/map/angmap.css")
+
+h1 Angular Google Map
+
+div(ng-controller="mapCtrl")
+	ui-gmap-google-map(center="map.center" zoom="map.zoom" options="options")
+		{{::aa}}

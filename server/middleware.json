@@ -1,7 +1,9 @@
 {
   "initial": {
     "morgan": {
-      "params": ["dev"]
+      "params": [
+        "dev"
+      ]
     },
     "compression": {}
   },
@@ -19,9 +21,16 @@
   "routes": {},
   "files": {
     "loopback#static": [
-      { "params": "$!../bower_components", "paths": "/bower_components" },
-      { "params": "$!../.tmp" },
-      { "params": "$!../client" }
+      {
+        "paths": "/bower_components",
+        "params": "$!../bower_components"
+      },
+      {
+        "params": "$!../.tmp"
+      },
+      {
+        "params": "$!../client"
+      }
     ]
   },
   "final": {}

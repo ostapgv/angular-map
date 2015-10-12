@@ -14,8 +14,14 @@ import AboutController from './about/about.controller';
 
 import './widgets/widgets.module.js';
 import './account/account.module.js';
+import './map/angmap.module.js';
 
-angular.module('angularMap.pages', ['angularMap.pages.widgets', 'angularMap.pages.account'])
+angular.module('angularMap.pages', ['angularMap.pages.widgets', 
+      'angularMap.pages.account', 'angularMap.pages.angmap'])//, 'uiGmapgoogle-maps'])
+//    .controller('mapCtrl', ['$scope', function($scope) {
+//      $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
+//      $scope.options = {scrollwheel: false};
+//    }])
     .controller('AboutController', AboutController)
     .config(function($stateProvider) {
         $stateProvider
@@ -27,6 +33,14 @@ angular.module('angularMap.pages', ['angularMap.pages.widgets', 'angularMap.page
                     }
                 }
             })
+//            .state('root.angmap', {
+//                url: '/angmap',
+//                views: {
+//                    main: {
+//                        templateUrl: 'app/pages/map/angmap.main.html'
+//                    }
+//                }
+//            })
             .state('root.about', {
                 url: '/about',
                 views: {

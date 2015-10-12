@@ -15,6 +15,10 @@ class NavbarController {
             title: 'Home',
             show: true
         }, {
+            sref: 'root.angmap',
+            title: 'Map',
+            show: true
+        }, {
             sref: 'root.about',
             title: 'About',
             show: true

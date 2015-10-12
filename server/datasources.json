@@ -19,11 +19,11 @@
     ]
   },
   "mongo": {
-    "name": "mongo",
-    "connector": "mongodb",
     "host": "localhost",
     "port": 27017,
-    "database": "project-boilerplate"
+    "database": "project-boilerplate",
+    "name": "mongo",
+    "connector": "mongodb"
   },
   "db": {
     "name": "db",

@@ -90,7 +90,7 @@
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.7.2"
-  }, 
+  },
   "repository": {
     "type": "",
     "url": ""

@@ -103,5 +103,13 @@
     },
     "name": "root.article",
     "url": "/article"
+  },
+  {
+    "express": {
+      "regexp": "^/angmap$",
+      "url": "/angmap"
+    },
+    "name": "root.angmap",
+    "url": "/angmap"
   }
 ]
