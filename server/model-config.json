@@ -41,7 +41,7 @@
   "Widget": {
     "dataSource": "mongo"
   },
-  "AngularMapData": {
+  "Place": {
     "dataSource": "mongo",
     "public": true
   }

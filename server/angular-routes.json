@@ -106,10 +106,10 @@
   },
   {
     "express": {
-      "regexp": "^/angmap$",
-      "url": "/angmap"
+      "regexp": "^/place$",
+      "url": "/place"
     },
-    "name": "root.angmap",
-    "url": "/angmap"
+    "name": "root.place",
+    "url": "/place"
   }
 ]

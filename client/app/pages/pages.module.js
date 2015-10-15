@@ -14,10 +14,10 @@ import AboutController from './about/about.controller';
 
 import './widgets/widgets.module.js';
 import './account/account.module.js';
-import './map/angmap.module.js';
+import './map/place.module.js';
 
 angular.module('angularMap.pages', ['angularMap.pages.widgets', 
-      'angularMap.pages.account', 'angularMap.pages.angmap'])//, 'uiGmapgoogle-maps'])
+      'angularMap.pages.account', 'angularMap.pages.place'])//, 'uiGmapgoogle-maps'])
 //    .controller('mapCtrl', ['$scope', function($scope) {
 //      $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
 //      $scope.options = {scrollwheel: false};
@@ -33,11 +33,11 @@ angular.module('angularMap.pages', ['angularMap.pages.widgets',
                     }
                 }
             })
-//            .state('root.angmap', {
-//                url: '/angmap',
+//            .state('root.place', {
+//                url: '/place',
 //                views: {
 //                    main: {
-//                        templateUrl: 'app/pages/map/angmap.main.html'
+//                        templateUrl: 'app/pages/map/place.main.html'
 //                    }
 //                }
 //            })

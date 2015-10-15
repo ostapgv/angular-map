@@ -117,7 +117,7 @@ var global = {
 }
 
 // The path where to mount the REST API app
-global.restApiRoot = '/api';
+global.restApiRoot = '/api/v1/';
 
 // local port
 global.localPort = process.env.SERVER_PORT || 3000;

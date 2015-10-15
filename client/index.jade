@@ -14,6 +14,8 @@ html.no-js(ng-app="angularMap" ng-strict-di)
     // bower:css
     link(rel='stylesheet', href='../bower_components/ngDialog/css/ngDialog.css')
     link(rel='stylesheet', href='../bower_components/ngDialog/css/ngDialog-theme-default.css')
+    link(rel='stylesheet', href='../bower_components/angular-google-places-autocomplete/src/autocomplete.css')
+    link(rel='stylesheet', href='../bower_components/angular-google-places-autocomplete/dist/autocomplete.min.css')
     // endbower
     // endbuild
     // build:css({.tmp,src}) styles/app.css
@@ -30,7 +32,7 @@ html.no-js(ng-app="angularMap" ng-strict-di)
         a(href="http://browsehappy.com/") upgrade your browser
         | to improve your experience.
     
-    //div(ng-include="'app/components/angmap.html'")
+    //div(ng-include="'app/components/place.html'")
     
     div(ui-view)
     script(src="assets/scripts/ga.js")
@@ -48,11 +50,14 @@ html.no-js(ng-app="angularMap" ng-strict-di)
     script(src='../bower_components/restangular/dist/restangular.js')
     script(src='../bower_components/angular-simple-logger/dist/angular-simple-logger.js')
     script(src='../bower_components/angular-google-maps/dist/angular-google-maps.js')
+    script(src='../bower_components/angular-google-places-autocomplete/src/autocomplete.js')
+    script(src='../bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js')
     // endbower
     // endbuild
     // build:js({.tmp,src}) scripts/app.js
     // inject:js
     script(src="app/app.js")
+    script(src="https://maps.googleapis.com/maps/api/js?libraries=places")
     // endinject
     // inject:partials
     // angular templates will be automatically converted in js and inserted here

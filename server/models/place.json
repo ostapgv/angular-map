@@ -1,5 +1,5 @@
 {
-  "name": "AngularMapData",
+  "name": "Place",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

@@ -15,8 +15,8 @@ class NavbarController {
             title: 'Home',
             show: true
         }, {
-            sref: 'root.angmap',
-            title: 'Map',
+            sref: 'root.place',
+            title: 'Places',
             show: true
         }, {
             sref: 'root.about',
