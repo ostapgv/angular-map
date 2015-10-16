@@ -1,8 +1,8 @@
 'use strict';
 
 class Place {
-    constructor(_id, name, latitude, longitude) {
-        this._id = _id;
+    constructor(id, name, latitude, longitude) {
+        this.id = id;
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;

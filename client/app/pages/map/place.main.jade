@@ -3,26 +3,27 @@ link(rel="stylesheet" href="app/pages/map/place.css")
 h1 Places you'd like to visit
 
 div
-	ui-gmap-google-map(center="map.center" zoom="map.zoom" options="options")
-		ui-gmap-marker(coords="placeCtrl.marker.coords" options="placeCtrl.marker.options" events="placeCtrl.marker.events" idkey="placeCtrl.marker.id")
+	ui-gmap-google-map(center="placeCtrl.map.center" zoom="placeCtrl.map.zoom" options="placeCtrl.map.options" events="placeCtrl.map.events")
+		ui-gmap-marker(ng-repeat="m in placeCtrl.map.markers" coords="m.coords" options="m.options" idkey="m.id")
+		//ui-gmap-marker(coords="placeCtrl.marker.coords" options="placeCtrl.marker.options" events="placeCtrl.marker.events" idkey="placeCtrl.marker.id")
 	div(id="places-form" class="container")
 		form(role="form")
 			div(class="form-group")
 				label(for="place") Name:
-				input(type="text" g-places-autocomplete force-selection="true" class="form-control" ng-model="currentPlace.name")
+				input(type="text" g-places-autocomplete class="form-control" id="autocomplete" ng-model="autocomplete")
 			div(class="form-group")
 				label(for="latitude") Latitude:
-				input(type="text" disabled class="form-control" ng-model="currentPlace.latitude")
+				input(type="text" disabled class="form-control" ng-model="placeCtrl.currentPlace.latitude")
 			div(class="form-group")
 				label(for="longitude") Longitude:
-				input(type="text" disabled class="form-control" ng-model="currentPlace.longitude")
+				input(type="text" disabled class="form-control" ng-model="placeCtrl.currentPlace.longitude")
 			button(type="button" class="btn btn-success" ng-click="placeCtrl.save()") Save
 	
 	div(id="places" class="container")
 		h4 List of your places
 		div(ng-repeat="place in places")
-			a(ng-click="placeCtrl.setPlace({'_id':place._id, 'name':place.name, 'latitude': place.latitude, 'longitude': place.longitude});") {{place.name}}
+			a(ng-click="placeCtrl.setPlaceById(place.id);") {{place.name}}
 
 	div(id="debug" class="container")
 		//<pre>{{place | json}}</pre>
-		//<pre>{{places | json}}</pre>
+		pre {{places | json}}
