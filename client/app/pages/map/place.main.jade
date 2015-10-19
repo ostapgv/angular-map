@@ -3,8 +3,9 @@ link(rel="stylesheet" href="app/pages/map/place.css")
 h1 Places you'd like to visit
 
 div
-	ui-gmap-google-map(center="placeCtrl.map.center" zoom="placeCtrl.map.zoom" options="placeCtrl.map.options" events="placeCtrl.map.events")
-		ui-gmap-marker(ng-repeat="m in placeCtrl.map.markers" coords="m.coords" options="m.options" idkey="m.id")
+	ui-gmap-google-map(center="placeCtrl.map.center" zoom="placeCtrl.map.zoom" options="placeCtrl.options" events="placeCtrl.map.events" bounds="placeCtrl.x.map.bounds")
+		//ui-gmap-marker(ng-repeat="m in placeCtrl.map.markers" coords="m.coords" options="m.options" idkey="m.id" on-click="alert(1)")
+		ui-gmap-markers(models="placeCtrl.x.randomMarkers" coords="'self'" icon="'icon'" type="'cluster'" modelsbyref="true" options="placeCtrl.x.options" events="placeCtrl.x.events")
 		//ui-gmap-marker(coords="placeCtrl.marker.coords" options="placeCtrl.marker.options" events="placeCtrl.marker.events" idkey="placeCtrl.marker.id")
 	div(id="places-form" class="container")
 		form(role="form")
@@ -18,7 +19,6 @@ div
 				label(for="longitude") Longitude:
 				input(type="text" disabled class="form-control" ng-model="placeCtrl.currentPlace.longitude")
 			button(type="button" class="btn btn-success" ng-click="placeCtrl.save()") Save
-	
 	div(id="places" class="container")
 		h4 List of your places
 		div(ng-repeat="place in places")
@@ -26,4 +26,8 @@ div
 
 	div(id="debug" class="container")
 		//<pre>{{place | json}}</pre>
-		pre {{places | json}}
+		//pre {{places | json}}
+		
+//div(id="map_canvas")
+	ui-gmap-google-map(center="placeCtrl.x.map.center" zoom="placeCtrl.x.map.zoom" draggable="true" options="placeCtrl.options" bounds="placeCtrl.x.map.bounds")
+		ui-gmap-markers(models="placeCtrl.x.randomMarkers" coords="'self'" icon="'icon'" fit="true" type="'cluster'" modelsbyref="true" click="placeCtrl.onMarkerClicked" options="placeCtrl.x.options")
