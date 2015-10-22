@@ -4,7 +4,7 @@ div.container {
 	padding: 10px;
 }
 
-div.lableContent, div.currentLableContent {
+div.lable-content, div.current-lable-content {
 	background-color: white;
 	opacity: 0.8;
 	padding: 5px;
@@ -12,6 +12,7 @@ div.lableContent, div.currentLableContent {
 	border: 1px solid silver;
 }
 
-div.currentLableContent {
-	color: red;
+div.current-lable-content {
+	color: green;
+	background-color: green;
 }
