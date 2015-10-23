@@ -1,10 +1,10 @@
 link(rel="stylesheet" href="app/pages/map/place.css")
 
-h1 Places you'd like to visit
+h1 Places you'd like to visit             
+	button(type="button" class="btn btn-success" data-title="Add place" data-content-template="app/pages/map/template/modal.add.place.tpl.html" bs-modal="placeCtrl.addPlaceModal") Add
 
 div
-	ui-gmap-google-map(center="placeCtrl.map.center" zoom="placeCtrl.map.zoom" options="placeCtrl.options" events="placeCtrl.map.events" bounds="placeCtrl.map.bounds")
-		//ui-gmap-marker(ng-repeat="m in placeCtrl.map.markers" coords="m.coords" options="m.options" idkey="m.id" on-click="alert(1)")
+	ui-gmap-google-map(center="placeCtrl.map.center" zoom="placeCtrl.map.zoom" options="placeCtrl.options" bounds="placeCtrl.map.bounds")
 		ui-gmap-markers(models="placeCtrl.map.markerMap" coords="'self'" icon="'icon'" modelsbyref="true" options="'options'" events="placeCtrl.map.markerEvents")
 			ui-gmap-windows(show="show")
 				div(ng-non-bindable)
@@ -21,7 +21,6 @@ div
 			div(class="form-group")
 				label(for="longitude") Longitude:
 				input(type="text" disabled class="form-control" ng-model="placeCtrl.currentPlace.longitude")
-			button(type="button" class="btn btn-success" ng-click="placeCtrl.save()") Save
 	div(id="places" class="container")
 		h4 List of your places
 		div(ng-repeat="place in placeCtrl.places")

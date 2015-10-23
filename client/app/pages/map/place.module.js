@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('angularMap.pages.place', ['google.places', 'restangular', 'uiGmapgoogle-maps'])
+angular.module('angularMap.pages.place', 
+        ['google.places', 'restangular', 'uiGmapgoogle-maps', 'mgcrea.ngStrap'])
     .config(function ($stateProvider) {
         $stateProvider
             .state('root.place', {
@@ -16,9 +17,6 @@ angular.module('angularMap.pages.place', ['google.places', 'restangular', 'uiGma
                             },
                             user: function (Users) {
                                 return Users.getCurrent();
-                            },
-                            basePlaces: function (Restangular) {
-                                return Restangular.all(config.restApiRoot + 'places');
                             },
                             places: function (Restangular) {
                                 return Restangular.all(config.restApiRoot + 'places').getList();

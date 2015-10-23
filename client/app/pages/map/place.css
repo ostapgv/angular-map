@@ -16,3 +16,7 @@ div.current-lable-content {
 	color: green;
 	background-color: green;
 }
+
+div.map-container {
+	border: 1px solid silver;
+}

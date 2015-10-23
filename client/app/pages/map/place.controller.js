@@ -7,23 +7,23 @@ import PagesController from '../pages.controller';
 import Place from './Place';
 
 class PlaceController extends PagesController {
-    
-    constructor($scope, basePlaces, places) {
+
+    constructor($scope, $modal, places) {
         'ngInject';
         super();
 
-        this.$scpope = $scope;
-
+        this.$scope = $scope;
         this.places = places;
+
         this.initializeMap();
         this.initializeCurrentPlace($scope);
         this.showSavedMarkers(places);
-        
+
         var self = this;
         $scope.autocomplete = {};
         $scope.$watch('autocomplete',
             (newVal, oldVal) => {
-                if(newVal === oldVal) { return; }
+                if (newVal === oldVal) { return; }
                 self.currentPlace.name = newVal;
                 if (newVal && newVal.geometry && newVal.geometry.location) {
                     var loc = newVal.geometry.location;
@@ -33,30 +33,53 @@ class PlaceController extends PagesController {
                 }
             },
             true
-        );
+            );
         
+        //this.addPlaceModal = {
+        //'content-template': 'app/pages/map/template/addplace.html'
+        //'content': 'Hello Modal<br />This is a multiline message!123'
+        //};
+        
+
     }
     
     // Map initialization
     initializeMap() {
+        var self = this;
         this.map = {
             center: { latitude: 0, longitude: 0 },
             zoom: 11,
-            markers: [],
+            marker: {id: -1},
             markerMap: [],
             bounds: {},
+            mapEvents: {
+                click: function (map, eventName, originalEventArgs) {
+                    var e = originalEventArgs[0];
+                    var lat = e.latLng.lat(), lon = e.latLng.lng();
+                    self.map.marker = self.getMarker(
+                        new Place(-1, "new", lat, lon)
+                        );
+                    self.$scope.$apply();
+                }
+            },
             markerEvents: {
-                //click: (map, eventName, originalEventArgs) => {
-                //    alert('clicked');
-                //},
+                click: (marker, eventName, model, args) => {
+                    var place = self.getPlaceById(model.id);
+                    if (!_.isUndefined(place)) {
+                        self.setPlace(place, true);
+                    }
+                    //alert(marker.getPosition());
+                },
                 //rightclick: (map, eventName, originalEventArgs) => {
                 //    alert('rightclick');
                 //},
-                dragend: (map, eventName, marker) => {
-                    //alert("dragend");
-                    //obj = _.find(myArray, (obj) => { return obj.id == '45' })
-                    //place.save();
-                    alert(JSON.stringify(marker));
+                dragend: (marker, eventName, model, args) => {
+                    var place = _.find(self.places, (place) => { return place.id === model.id; });
+                    place.latitude = marker.getPosition().lat();
+                    place.longitude = marker.getPosition().lng();
+                    place.put();
+                    self.setPlace(place, true);
+                    //self.updatePlace(place);
                 }
             }
         };
@@ -76,19 +99,18 @@ class PlaceController extends PagesController {
                 },
                 this.setCurrentPositionError,
                 { enableHighAccuracy: false, maximumAge: Infinity, timeout: 6000 }
-            );
+                );
         }
     }
 
     // Set current position to the map
     setCurrentPosition(pos, self) {
-        if(_.isUndefined(self)) { self = this; }
+        if (_.isUndefined(self)) { self = this; }
         var crd = pos.coords;
-        this.setPlace(new Place(-1, 'You are here', crd.latitude, crd.longitude), this);
+        this.setPlace(new Place(-1, 'You are here', crd.latitude, crd.longitude));
         var currentPlaceMarker = this.getMarker(this.currentPlace);
         currentPlaceMarker.options.draggable = false;
         currentPlaceMarker.options.labelContent = '<div class="current-lable-content">' + currentPlaceMarker.name + '</div>';
-        alert(JSON.stringify(currentPlaceMarker));
         this.showMarker(currentPlaceMarker);
     }
     // Set current position error handler
@@ -97,13 +119,19 @@ class PlaceController extends PagesController {
     }
     
     // Set place to the map
-    setPlace(place) {
+    //
+    setPlace(place, dontMove) {
         this.currentPlace.id = place.id;
-        this.currentPlace.latitude = this.map.center.latitude = place.latitude;
-        this.currentPlace.longitude = this.map.center.longitude = place.longitude;
+        this.currentPlace.latitude = place.latitude;
+        this.currentPlace.longitude = place.longitude;
+        if (!dontMove) {
+            this.map.center.latitude = place.latitude;
+            this.map.center.longitude = place.longitude;
+        }
         // TODO ogv Define if the condition below is necessary
         if (!_.isUndefined(place.name)) {
             this.currentPlace.name = place.name;
+            this.$scope.autocomplete = place.name;
         }
     }
     
@@ -132,7 +160,7 @@ class PlaceController extends PagesController {
     // Show markers for saved places
     showSavedMarkers() {
         var self = this;
-        _(this.places).forEach( (place) => {
+        _(this.places).forEach((place) => {
             self.showMarker(place);
         }).value();
     }
@@ -154,6 +182,19 @@ class PlaceController extends PagesController {
             this.setPlace(place);
         }
     }
+    
+    // Update the place
+    updatePlace(place) {
+        place.put();
+    }
+    
+    // Seve or update the place
+    showAddPlaceModal() {
+        this.$scope.showModal = () => {
+            this.addPlaceModal.$promise.then(this.addPlaceModal.show);
+        };
+    }
+
 
 }
 
